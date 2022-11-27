@@ -47,10 +47,13 @@
 
     <!-- JS Libraies -->
     @stack('lib_script')
+    
 
     <!-- Template JS File -->
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+
+    @stack('page_script')
 
     @livewireScripts
     </body>
