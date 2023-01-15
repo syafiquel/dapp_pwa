@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="http://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('css/nexa-bold.css') }}">
     </head>
     <body class="flex">
         <nav class="nav__mobile flex-column flex-align-center">
