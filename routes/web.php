@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::middleware('auth')->group(function() {
+Route::middleware(['auth'])->group(function() {
 
     Route::get('/', function () {
-        return view('home');
+        return view('home')->name('index');
     });
 
     Route::get('/logout', function () {
-        return view('logout');
+        return view('logout')->name('logout');
     });
     
     Route::get('/home', function () {
@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function() {
 
 });
 
-Route::middleware('guest')->group(function() {
+Route::middleware(['guest'])->group(function() {
 
     Route::get('/login', function () {
         return view('login');
-    });
+    })->name('login');
 });
