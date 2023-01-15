@@ -6,7 +6,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="{{ asset('app.css') }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="http://fonts.cdnfonts.com/css/nexa-bold" rel="stylesheet">
     </head>
@@ -487,6 +487,6 @@
     </div>
 </section> -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-        <script src="app.js"></script>
+        <script src="{{ asset('app.js') }}"></script>
     </body>
 </html>
