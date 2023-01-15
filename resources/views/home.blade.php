@@ -6,9 +6,9 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/respo.css') }}">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('css/nexa-bold.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/nexa-bold-font.css') }}">
     </head>
     <body class="flex">
         <nav class="nav__mobile flex-column flex-align-center">
@@ -487,6 +487,6 @@
     </div>
 </section> -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/respo.js') }}"></script>
     </body>
 </html>
