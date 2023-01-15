@@ -44,7 +44,7 @@
                 var w3text = w3DisconBtn.shadowRoot.querySelector('w3m-text');
                 var label = w3text.innerText;
 
-                window.location.href = "{{ env('APP_URL') . '/home'";
+                window.location.href = "{{ env('APP_URL') . '/home' }}";
             }
 
         });
