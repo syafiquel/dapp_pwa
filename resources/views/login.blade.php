@@ -48,7 +48,7 @@
             }
 
         });
-    }, 1000);
+    }, 500);
     </script>
     @endpush
 </x-guest-layout>
