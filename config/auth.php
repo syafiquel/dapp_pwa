@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'crypto_wallet',
+        'passwords' => 'crypto_wallet',
     ],
 
     /*
@@ -38,7 +38,11 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'crypto_wallet',
+        ],
+        'crypto_wallet' => [
+             'driver' => 'session',
+             'provider' => 'crypto_wallet',
         ],
     ],
 
@@ -65,10 +69,25 @@ return [
             'model' => App\Models\User::class,
         ],
 
+        'crypto_wallet' => [
+            'driver' => 'crypto_wallet',
+            'model' => App\Models\WalletUser::class,
+            'provider' => App\Providers\CryptoWalletUserProvider::class,
+
+        ],
+
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+    ],
+
+    'crypto_wallet' => [
+            'driver' => 'crypto_wallet',
+            'model' => App\Models\WalletUser::class,
+            'provider' => App\Providers\CryptoWalletUserProvider::class,
+
     ],
 
     /*

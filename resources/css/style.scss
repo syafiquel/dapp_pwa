@@ -1,0 +1,89 @@
+.container {
+	background-color: #0a375f;
+	width: 100% !important;
+}
+
+.headline-container {
+	padding-top: 20px;
+	
+	.headline {
+		text-align:center;
+		
+		.hed {
+			 font-family: 'Whitney SSm', Helvetica, Arial, sans-serif;
+		}
+		
+		.dek {
+		}
+	}
+}
+
+.card {
+	border-color: #c7b78f;
+	border-radius: 0;
+	border: none;
+	
+	img {
+		padding: 10px;
+	}
+	
+	.card-link {
+		font-weight: 600;
+		text-transform: uppercase;
+		font-family: 'Whitney SSm', Helvetica, Arial, sans-serif;
+		border-bottom: 1px solid #c7b78f;
+		border-radius: 0;
+	}
+	
+	.card-title, .card-text {
+		font-family: 'Whitney SSm', Helvetica, Arial, sans-serif;
+
+	}
+	
+	.card-text {
+		font-weight: 300;
+	}
+}
+
+
+.btn-primary {
+	background-color: #328890;
+	border: none;
+	border-radius: 0;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 8px 12px;
+	
+	&:hover {
+		background-color: black; 
+	}
+}
+
+// Bootstrap 4 breakpoints & gutter
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+$grid-gutter-width: 30px !default;
+
+// number of cards per line for each breakpoint
+$cards-per-line: (
+    xs: 1,
+    sm: 2,
+    md: 2,
+    lg: 3,
+    xl: 3
+);
+
+@each $name, $breakpoint in $grid-breakpoints {
+	@media (min-width: $breakpoint) {
+		.card-deck .card {
+			flex: 0 0 calc(#{100/map-get($cards-per-line, $name)}% - #{$grid-gutter-width});
+		}
+	}
+}

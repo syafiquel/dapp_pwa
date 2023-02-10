@@ -69,14 +69,20 @@
 
         <!-- Scripts -->
         <!-- Styles -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/components.css') }}" rel="stylesheet">
+        <!-- <link href="{{ asset('css/components.css') }}" rel="stylesheet"> -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
-        <div id="app">
-            {{ $slot }}
+    <body class="font-sans antialiased">
+        <div class="min-h-screen bg-gray-100">
+            @livewire('components.top-navbar')
+
+            <div class="h-screen flex flex-row flex-wrap">
+                <div class="bg-gray-100 flex-1 p-6 md:mt-16"> 
+                    {{ $slot }}
+                </div>
+            </div>
         </div>
 
     <!-- General JS Scripts -->

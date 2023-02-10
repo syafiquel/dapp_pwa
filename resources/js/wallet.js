@@ -7,7 +7,7 @@ const projectId = '1a9d88a1bcc1c63302e3b07b873ccdc1'
 const chains = [chain.mainnet, chain.polygonMumbai]
 
 // 2. Configure wagmi client
-const { provider } = configureChains(chains, [walletConnectProvider({ projectId })])
+window.provider = configureChains(chains, [walletConnectProvider({ projectId })])
 const wagmiClient = createClient({
   autoConnect: true,
   connectors: modalConnectors({ appName: 'web3Modal', chains }),
@@ -25,8 +25,11 @@ ConfigCtrl.setConfig({
 })
 ClientCtrl.setEthereumClient(ethereumClient, chains)
 
+
 // 5. Import ui package after all configuration has been completed
 import('@web3modal/ui')
+
+// export default wagmiClient;
 
 /**
  * 6. Use ModalCtrl and wagmiClient in your app i.e.
