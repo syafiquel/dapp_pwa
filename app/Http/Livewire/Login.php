@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 class Login extends Component
 {
 
-    protected $listeners = ['alert' => 'alert'];
 
     public function mount()
     {
@@ -20,11 +19,4 @@ class Login extends Component
         return view('livewire.login');
     }
 
-    public function alert($address)
-    {
-        if(Auth::attempt(['wallet_address' => 'abc123']))
-        {
-            dd(Auth::user());
-        }
-    }
 }

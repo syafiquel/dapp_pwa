@@ -35,5 +35,5 @@ Route::middleware(['guest'])->group(function() {
     })->name('login');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');
-    Route::redirect('/', '/home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('index');
 });

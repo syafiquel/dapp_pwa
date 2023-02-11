@@ -6,7 +6,8 @@
 
         <div class="ml-auto">
             <div class="d-flex justify-content-between">
-                <button class="btn btn-primary mr-3" style="border-radius:10px;background-color:#0a375f;">Login</button>
+                <button class="btn btn-info mr-3" style="border-radius:10px;background-color:#eb7734;">Buy MATIC</button>
+                <button wire:click="verifyAuth()" class="btn btn-primary mr-3" style="border-radius:10px;background-color:#0a375f;">Login</button>
                 <w3m-core-button id="wallet-connect"></w3m-core-button>
                 <w3m-modal></w3m-modal>
             </div>
@@ -32,9 +33,9 @@
                 if (w3DisconBtn !== null) {
                     var w3text = w3DisconBtn.shadowRoot.querySelector('w3m-text');
                     var label = w3text.innerText;
-                    //const acc = window.ethereum.selectedAddress;
-                    console.log(label);
-                    //window.livewire.emit('alert', acc);
+                    const walletAddress = window.ethereum.selectedAddress;
+                    console.log(walletAddress);
+                    window.livewire.emit('send-wallet-address', walletAddress);
                     clearInterval(intervalId);
                     //window.location.href = "{{ env('APP_URL') . '/home' }}";
                 }
