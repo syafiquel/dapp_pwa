@@ -36,4 +36,11 @@ Route::middleware(['guest'])->group(function() {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home');
     Route::get('/', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('index');
+    Route::get('/sdc/portal', function() {
+        $url = 'https://dapp.sdc.cx/images/';
+        $name = 'action';
+        $data = [ [ 'url' => $url . 'T-POT.png', 'name' => 'TPOT Dashboard' ], [ 'url' => $url . 'KROT.png', 'name' => 'KROT Robot Trader' ], 
+                  [ 'url' => $url . 'BRACS.png', 'name' => 'BRACS Education' ], [ 'url' => $url . 'GETS.png', 'name' => 'GETS Token Store' ] ];
+        return view('sdc-portal', compact('data'));
+    })->name('sdc_portal');
 });

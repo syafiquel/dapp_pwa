@@ -1,13 +1,14 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ffc107">
         <a class="navbar-brand" href="#">
-            <img src="http://dapp.sdc.cx/images/sdc.png" width="30" height="30" alt="Logo">
+            <img src="http://app.sdc.cx/images/sdc.png" width="30" height="30" alt="Logo">
         </a>
 
         <div class="ml-auto">
             <div class="d-flex justify-content-between">
                 <button class="btn btn-info mr-3" style="border-radius:10px;background-color:#eb7734;">Buy MATIC</button>
-                <button x-init="if(window.ethereum.selectedAddress != undefined) $wire.set('wallet_address', window.ethereum.selectedAddress)" x-data="" wire:click="verifyAuth()" class="btn btn-primary mr-3" style="border-radius:10px;background-color:#0a375f;">Login</button>
+                <button x-init="if(window.ethereum.selectedAddress != undefined && ) $wire.set('wallet_address', window.ethereum.selectedAddress)" 
+                 x-data="" wire:click="verifyAuth()" class="btn btn-primary mr-3" style="border-radius:10px;background-color:#0a375f;">Login</button>
                 <w3m-core-button id="wallet-connect"></w3m-core-button>
                 <w3m-modal></w3m-modal>
             </div>

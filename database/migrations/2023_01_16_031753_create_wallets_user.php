@@ -16,6 +16,7 @@ class CreateWalletsUser extends Migration
         Schema::create('wallet_users', function (Blueprint $table) {
             $table->id();
             $table->string('wallet_address');
+            $table->boolean('is_wallet_connect')->default(0);
             $table->timestamps();
         });
     }
