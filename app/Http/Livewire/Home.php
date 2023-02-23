@@ -36,7 +36,7 @@ class Home extends Component
         $this->nft_assets = NftAsset::where('wallet_user_id', 1)->with('collection')->get();
         $this->nft_assets->map(function( $nft_asset, $key ) {
             $name = str_replace(' ', '', strtolower($nft_asset->name));
-            $nft_asset->ipfs_url = secure_asset('/images/nft/') . $name . '.png';
+            $nft_asset->ipfs_url = secure_asset('/images/nft') . '/' . $name . '.png';
             return $nft_asset;
         });
     }
