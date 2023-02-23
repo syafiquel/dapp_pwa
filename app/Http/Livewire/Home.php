@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\NftAsset;
-use App\Services\HttpClient;
+//use App\Services\HttpClient;
 use Illuminate\Support\Facades\Log;
 
 
@@ -12,21 +12,31 @@ class Home extends Component
 {
 
     public $nft_assets;
-    protected $http;
+    //protected $http;
 
     protected $listeners = ['payment-transaction' => 'paymentHandle'];
 
 
-    public function mount(HttpClient $http)
+    // public function mount(HttpClient $http)
+    // {
+    //     $this->http = $http;
+    //     $this->nft_assets = NftAsset::where('wallet_user_id', 1)->with('collection')->get();
+    //     $this->nft_assets->map(function( $nft_asset, $key ) {
+    //         $ipfs = str_replace('ipfs://', 'https://ipfs.io/ipfs/', $nft_asset->ipfs_url);
+    //         $res = $this->http->get($ipfs);
+    //         $data = json_decode($res->getBody()->getContents());
+    //         $image_url = str_replace('ipfs://', 'https://ipfs.io/ipfs/', $data->image);
+    //         $nft_asset->ipfs_url = $image_url;
+    //         return $nft_asset;
+    //     });
+    // }
+
+    public function mount()
     {
-        $this->http = $http;
         $this->nft_assets = NftAsset::where('wallet_user_id', 1)->with('collection')->get();
         $this->nft_assets->map(function( $nft_asset, $key ) {
-            $ipfs = str_replace('ipfs://', 'https://ipfs.io/ipfs/', $nft_asset->ipfs_url);
-            $res = $this->http->get($ipfs);
-            $data = json_decode($res->getBody()->getContents());
-            $image_url = str_replace('ipfs://', 'https://ipfs.io/ipfs/', $data->image);
-            $nft_asset->ipfs_url = $image_url;
+            $name = str_replace(' ', '', strtolower($nft_asset->name));
+            $nft_asset->ipfs_url = secure_asset('/images/nft/') . $name . '.png';
             return $nft_asset;
         });
     }
