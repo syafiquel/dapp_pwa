@@ -13,4 +13,8 @@ COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /code
 
+COPY . .
+
+RUN composer install && composer update
+
 ENTRYPOINT [ "php", "artisan", "serve", "--host", "0.0.0.0", "--port", "80" ]
