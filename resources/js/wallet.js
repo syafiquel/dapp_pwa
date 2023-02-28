@@ -4,7 +4,7 @@ import { EthereumClient, modalConnectors, walletConnectProvider } from '@web3mod
 
 // 1. Define constants
 const projectId = '1a9d88a1bcc1c63302e3b07b873ccdc1'
-const chains = [chain.mainnet, chain.polygonMumbai]
+const chains = [chain.polygonMumbai]
 
 // 2. Configure wagmi client
 window.provider = configureChains(chains, [walletConnectProvider({ projectId })])
