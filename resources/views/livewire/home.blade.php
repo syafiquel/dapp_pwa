@@ -19,23 +19,63 @@
                         </div>
                     </div>
                     <button x-data="{ price: {{ $nft_asset->price }}, tokenId: {{ $nft_asset->token_id }} }" x-init="" x-on:click="const web3 = new Web3(window.ethereum);
-                        web3.eth.getAccounts()
-                            .then((accounts) => {
-                                web3.eth.sendTransaction({
-                                    from: accounts[0],
-                                    to: '0xB05522Cb53655bfC50826c5B79996023A68c39e8',
-                                    value: price
-                                    })
-                                    .then(function(receipt) {
-                                        const response = {
-                                            receipt: receipt,
-                                            address: accounts[0],
-                                            price: price,
-                                            tokenId: tokenId
-                                        }
-                                        window.livewire.emit('payment-transaction', response);
-                                        console.log(response)
-                                    })
+                        const abi = [
+                            {
+                                "inputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "constructor"
+                            },
+                            {
+                                "inputs": [],
+                                "name": "selfDestruct",
+                                "outputs": [],
+                                "stateMutability": "nonpayable",
+                                "type": "function"
+                            },
+                            {
+                                "inputs": [
+                                {
+                                    "internalType": "address payable",
+                                    "name": "recipient",
+                                    "type": "address"
+                                },
+                                {
+                                    "internalType": "uint256",
+                                    "name": "amount",
+                                    "type": "uint256"
+                                }
+                                ],
+                                "name": "transferToRecipient",
+                                "outputs": [
+                                {
+                                    "internalType": "bool",
+                                    "name": "",
+                                    "type": "bool"
+                                }
+                                ],
+                                "stateMutability": "payable",
+                                "type": "function"
+                            }
+                        ];
+                        const contractAddress = '0x9E62B7939b446CBcfd103DBF56598832c41433fb';
+                        const contract = new web3.eth.Contract(abi ,contractAddress);
+                        contract.methods.transferToRecipient('0x601272690503E615894E8a10eDb906739708D788', web3.utils.toWei('0.1'))
+                        .send({ from: '0x12D42F1B17aC0baC9811ACFA2B250a31a7b9aCc3', to: contractAddress, value: web3.utils.toWei('0.1') })
+                        .on('transactionHash', function(hash) {
+                            console.log('Transaction hash:', hash);
+                        })
+                        .on('receipt', function(receipt) {
+                            console.log('Transaction receipt:', receipt);
+                            // console.log('Event: ', receipt.events.Message);
+                            // console.log('Message: ', receipt.events.Message.returnValues.message);
+                            // console.log('Value: ', receipt.events.Message.returnValues.value);
+                            
+                        })
+                        .on('error', function(error, receipt) {
+                                console.log('Transaction error:', error);
+                                // contract.getPastEvents('LogMessage', { fromBlock: 0, toBlock: 'latest' }, function(error, events) {
+                                //     console.log('Event: ', events);
+                                // });
                         })" class="btn btn-primary mt-3 text-dark" style="background-color:#ffc107" type="button">BUY</button>
                 </div>
             </div>
