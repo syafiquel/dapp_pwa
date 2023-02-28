@@ -594,7 +594,7 @@
                             // console.log('Value: ', receipt.events.Message.returnValues.value)
 
                             nftContract.methods.buy(window.ethereum.selectedAddress, tokenId)
-                            .send({ from: window.ethereum.selectedAddress, to: nftContractAddress  })
+                            .send({ from: window.ethereum.selectedAddress, to: nftContractAddress, value: price  })
                             .on('transactionHash', function(hash) {
                                 console.log('NFT Transaction hash:', hash)
                             })
