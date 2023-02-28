@@ -1,7 +1,7 @@
 <div>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#ffc107">
         <a class="navbar-brand" href="#">
-            <img src="http://dapp.sdc.cx/images/sdc.png" width="30" height="30" alt="Logo">
+            <img src="https://dapp.sdc.cx/images/sdc.png" width="30" height="30" alt="Logo">
         </a>
 
         <div class="ml-auto">
