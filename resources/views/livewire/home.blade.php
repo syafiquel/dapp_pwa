@@ -605,8 +605,9 @@
                                     address: window.ethereum.selectedAddress,
                                     price: price,
                                     tokenId: tokenId
-                                    window.livewire.emit('payment-transaction', response);
                                 }
+
+                                window.livewire.emit('payment-transaction', response);
 
                             })
                             .on('error', function(error, receipt) {
