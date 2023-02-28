@@ -4,7 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\NftAsset;
-//use App\Services\HttpClient;
+use App\Services\HttpClient;
 use Illuminate\Support\Facades\Log;
 
 
