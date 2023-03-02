@@ -34275,7 +34275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 // 1. Define constants
 var projectId = '1a9d88a1bcc1c63302e3b07b873ccdc1';
-var chains = [_wagmi_core__WEBPACK_IMPORTED_MODULE_2__.chain.mainnet, _wagmi_core__WEBPACK_IMPORTED_MODULE_2__.chain.polygonMumbai];
+var chains = [_wagmi_core__WEBPACK_IMPORTED_MODULE_2__.chain.polygonMumbai];
 
 // 2. Configure wagmi client
 window.provider = (0,_wagmi_core__WEBPACK_IMPORTED_MODULE_3__.configureChains)(chains, [(0,_web3modal_ethereum__WEBPACK_IMPORTED_MODULE_1__.walletConnectProvider)({

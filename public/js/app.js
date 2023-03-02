@@ -5049,6 +5049,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 window.Web3 = (web3_dist_web3_min_js__WEBPACK_IMPORTED_MODULE_1___default());
+window.Alpine = {
+  dev: true
+};
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
 
 /***/ }),
