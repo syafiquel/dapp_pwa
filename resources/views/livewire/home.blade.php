@@ -20,10 +20,9 @@
                     </div>
                     <button x-data="{ price: {{ $nft_asset->price }}, tokenId: {{ $nft_asset->token_id }} }" x-init="" x-on:click="const web3 = new Web3(window.ethereum);
                         const getBalance = async () => { await web3.eth.getBalance(window.ethereum.selectedAddress) };
-                        const balance = await getBalance();
-                        console.log(balance)
+                        console.log(await getBalance());
                         console.log(price);
-                        if(balance > price) {
+                        if(await getBalance() > price) {
                             const abi = [
                                 {
                                     'inputs': [],
