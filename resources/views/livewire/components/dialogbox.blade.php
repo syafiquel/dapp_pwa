@@ -19,8 +19,10 @@
 @once
     @push('page_script')
     <script type="text/javascript" defer>
-        window.livewire.on('open-confirm-modal', () => {     
+        document.addEventListener('livewire:available', function () {
+            window.livewire.on('open-confirm-modal', () => {     
             $('#modal-confirm').modal('show');     
+        });
         });
     </script>
     @endpush
