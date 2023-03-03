@@ -607,7 +607,7 @@
                                 window.livewire.emit('payment-transaction', response)
 
                             })
-                            catch((error) => {
+                            .catch((error) => {
                                 console.log('Transaction error:', error)
                             });
                         }
