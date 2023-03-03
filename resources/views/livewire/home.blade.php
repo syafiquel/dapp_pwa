@@ -637,7 +637,7 @@
     @once
     @push('page_script')
     <script type="text/javascript" defer>
-        document.addEventListener('livewire:available', function () {
+        document.addEventListener('livewire:load', function () {
             window.livewire.on('open-confirm-modal', () => {     
             $('#modal-confirm').modal('show');     
         });

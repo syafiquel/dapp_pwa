@@ -95,7 +95,8 @@
     <script src="{{ asset('js/stisla.js') }}"></script>
 
 
-
+    @livewireScripts
+    
     <!-- JS Libraies -->
     @stack('lib_script')
     
@@ -105,7 +106,5 @@
     <script src="{{ asset('js/custom.js') }}"></script>
 
     @stack('page_script')
-
-    @livewireScripts
     </body>
 </html>
