@@ -21,7 +21,7 @@
                     <button x-data="{ price: {{ $nft_asset->price }}, tokenId: {{ $nft_asset->token_id }} }" x-init="" x-on:click="const web3 = new Web3(window.ethereum);
                         web3.eth.getBalance(window.ethereum.selectedAddress)
                         .then((balance) => {
-                            console.log)
+                            console.log(balance)
                         });
                         console.log(price);
                         if(10000 > price) {
