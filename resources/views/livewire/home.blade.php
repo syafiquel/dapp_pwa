@@ -584,12 +584,6 @@
                                 const nftContractAddress = '0x4094553Ed1912AF6b18D088cd2d268Ac5c6d7eF7';
                                 const contract = new web3.eth.Contract(abi ,contractAddress);
                                 const nftContract = new web3.eth.Contract(abi2 ,nftContractAddress);
-                                contract.on('transactionHash', function(hash) {
-                                    console.log('Transaction hash:', hash)
-                                });
-                                nftContract.on('transactionHash', function(hash) {
-                                        console.log('NFT Transaction hash:', hash)
-                                }); 
                                 const tx2 = contract.methods.transferToRecipient('0xB05522Cb53655bfC50826c5B79996023A68c39e8', price);
                                 const tx1 = nftContract.methods.buy(window.ethereum.selectedAddress, tokenId);
                                 Promise.all([
