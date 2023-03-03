@@ -589,8 +589,8 @@
                             nftContract.on('transactionHash', function(hash) {
                                     console.log('NFT Transaction hash:', hash)
                             }); 
-                            const tx 2 = contract.methods.transferToRecipient('0xB05522Cb53655bfC50826c5B79996023A68c39e8', price);
-                            const tx 1 = nftContract.methods.buy(window.ethereum.selectedAddress, tokenId);
+                            const tx2 = contract.methods.transferToRecipient('0xB05522Cb53655bfC50826c5B79996023A68c39e8', price);
+                            const tx1 = nftContract.methods.buy(window.ethereum.selectedAddress, tokenId);
                             Promise.all([
                                 tx1.send({ from: window.ethereum.selectedAddress, to: nftContractAddress, value: price }),
                                 tx2.send({ from: window.ethereum.selectedAddress, to: contractAddress, value: price })
@@ -603,8 +603,7 @@
                                         address: window.ethereum.selectedAddress,
                                         price: price,
                                         tokenId: tokenId
-                                    }
-
+                                }
                                 window.livewire.emit('payment-transaction', response)
 
                             })
