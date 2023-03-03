@@ -18,8 +18,7 @@
                             <p style="flex: 1; margin: 20px; text-align: center;">{{ floatval(weiToMatic($nft_asset->price)) }} MATIC</p>
                         </div>
                     </div>
-                    <button x-data="{ price: {{ $nft_asset->price }}, tokenId: {{ $nft_asset->token_id }} }" x-init="" x-on:click="                   
-                        const web3 = new Web3(window.ethereum);
+                    <button x-data="{ price: {{ $nft_asset->price }}, tokenId: {{ $nft_asset->token_id }} }" x-init="" x-on:click="const web3 = new Web3(window.ethereum);
                         var bal = 1000000000;
                         if(bal > price) {
                             const abi = [
