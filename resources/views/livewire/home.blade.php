@@ -583,46 +583,34 @@
                             const nftContractAddress = '0x4094553Ed1912AF6b18D088cd2d268Ac5c6d7eF7';
                             const contract = new web3.eth.Contract(abi ,contractAddress);
                             const nftContract = new web3.eth.Contract(abi2 ,nftContractAddress);
-                            contract.methods.transferToRecipient('0xB05522Cb53655bfC50826c5B79996023A68c39e8', price)
-                            .send({ from: window.ethereum.selectedAddress, to: contractAddress, value: price })
-                            .on('transactionHash', function(hash) {
+                            contract.on('transactionHash', function(hash) {
                                 console.log('Transaction hash:', hash)
-                            })
-                            .on('receipt', function(receipt) {
-                                console.log('Transaction receipt:', receipt)
-                                
-                                // console.log('Event: ', receipt.events.Message)
-                                // console.log('Message: ', receipt.events.Message.returnValues.message)
-                                // console.log('Value: ', receipt.events.Message.returnValues.value)
-
-                                nftContract.methods.buy(window.ethereum.selectedAddress, tokenId)
-                                .send({ from: window.ethereum.selectedAddress, to: nftContractAddress, value: price  })
-                                .on('transactionHash', function(hash) {
+                            });
+                            nftContract.on('transactionHash', function(hash) {
                                     console.log('NFT Transaction hash:', hash)
-                                })
-                                .on('receipt', function(receipt) {
-
-                                    const response = {
+                            }); 
+                            const tx 2 = contract.methods.transferToRecipient('0xB05522Cb53655bfC50826c5B79996023A68c39e8', price);
+                            const tx 1 = nftContract.methods.buy(window.ethereum.selectedAddress, tokenId);
+                            Promise.all([
+                                tx1.send({ from: window.ethereum.selectedAddress, to: nftContractAddress, value: price }),
+                                tx2.send({ from: window.ethereum.selectedAddress, to: contractAddress, value: price })
+                            ])
+                            .then([ receipt1, receipt2 ]) => {
+                                console.log('Transaction nft receipt:', receipt1)
+                                console.log('Transaction receipt:', receipt2)
+                                const response = {
                                         receipt: receipt,
                                         address: window.ethereum.selectedAddress,
                                         price: price,
                                         tokenId: tokenId
                                     }
 
-                                    window.livewire.emit('payment-transaction', response);
+                                window.livewire.emit('payment-transaction', response)
 
-                                })
-                                .on('error', function(error, receipt) {
-                                    console.log('Transaction error:', error)
-                                    
-                                })
-
-
-                                
                             })
-                            .on('error', function(error, receipt) {
-                                    console.log('Transaction error:', error)                                
-                            })
+                            catch((error) => {
+                                console.log('Transaction error:', error)
+                            });
                         }
                         else {
                             window.livewire.emit('open-confirm-modal')
