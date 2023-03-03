@@ -18,7 +18,7 @@
 </div>
 @once
     @push('page_script')
-    <script type="text/javascript">
+    <script type="text/javascript" defer>
         window.livewire.on('open-confirm-modal', data => {     
             $('#modal-confirm').modal('show');     
         });
