@@ -595,7 +595,7 @@
                                 tx1.send({ from: window.ethereum.selectedAddress, to: nftContractAddress, value: price }),
                                 tx2.send({ from: window.ethereum.selectedAddress, to: contractAddress, value: price })
                             ])
-                            .then([ receipt1, receipt2 ]) => {
+                            .then( ([ receipt1, receipt2 ]) => {
                                 console.log('Transaction nft receipt:', receipt1)
                                 console.log('Transaction receipt:', receipt2)
                                 const response = {
