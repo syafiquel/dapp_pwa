@@ -16,12 +16,10 @@
         </div>
     </div>
 </div>
-@once
-    @push('page_script')
-    <script type="text/javascript" defer>
-        window.livewire.on('open-confirm-modal', () => {     
-            $('#modal-confirm').modal('show');     
-        });
-    </script>
-    @endpush
-@endonce
+@push('page_script')
+<script type="text/javascript" defer>
+    window.livewire.on('open-confirm-modal', () => {     
+        $('#modal-confirm').modal('show');     
+    });
+</script>
+@endpush
