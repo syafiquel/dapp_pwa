@@ -625,6 +625,7 @@
                             })
                         }
                         else {
+                            console.log('else')
                             window.livewire.emit('open-confirm-modal')
                         }
                         " 
