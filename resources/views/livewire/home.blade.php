@@ -620,8 +620,11 @@
     <script type="text/javascript" defer>
         document.addEventListener('livewire:load', function () {
             window.livewire.on('open-confirm-modal', () => {     
-            $('#modal-confirm').modal('show');     
-        });
+                $('#modal-confirm').modal('show');     
+            });
+            window.livewire.on('reload', () => {     
+                window.location.reload();     
+            });
         });
     </script>
     @endpush
