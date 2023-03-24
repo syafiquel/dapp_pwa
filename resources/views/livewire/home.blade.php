@@ -598,7 +598,6 @@
                                             price: price,
                                             tokenId: tokenId
                                     }
-                                    window.livewire.emit('payment-transaction', response)
 
                                 })
                                 .catch((error) => {
