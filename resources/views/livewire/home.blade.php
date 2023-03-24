@@ -594,6 +594,7 @@
                                     console.log('Transaction nft receipt:', receipt1)
                                     console.log('Transaction receipt:', receipt2)
                                     const response = {
+                                            receipt: receipt,
                                             address: window.ethereum.selectedAddress,
                                             price: price,
                                             tokenId: tokenId
