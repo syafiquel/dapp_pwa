@@ -623,9 +623,6 @@
             window.livewire.on('open-confirm-modal', () => {     
                 $('#modal-confirm').modal('show');     
             });
-            window.livewire.on('reload', () => {     
-                window.location.reload();     
-            });
         });
     </script>
     @endpush
