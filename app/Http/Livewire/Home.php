@@ -46,7 +46,7 @@ class Home extends Component
     {
         $api_client = new HttpClient();
         $response['price'] = floatval(weiToMatic($response['price']));
-        $contract_handler_server_url = 'http://172.19.0.5:3000/transfer/' . $response['address'] . '/' . $response['price'] . '/' . $response['tokenId'] . '/';
+        $contract_handler_server_url = 'http://172.19.0.3:3000/transfer/' . $response['address'] . '/' . $response['price'] . '/' . $response['tokenId'] . '/';
         $response = $api_client->get($contract_handler_server_url);
         $this->emit('reload');
 
