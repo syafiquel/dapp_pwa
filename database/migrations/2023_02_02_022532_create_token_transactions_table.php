@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNftSmartContractsTable extends Migration
+class CreateTokenTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateNftSmartContractsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nft_smart_contracts', function (Blueprint $table) {
+        Schema::create('token_transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('network_name')->default('matic');
-            $table->string('address');
-            $table->boolean('is_mainnet')->default(0);
+            $table->bigInteger('token_asset_id')->unsigned()->index()->nullable();
+            $table->string('address_from');
+            $table->string('address_to');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateNftSmartContractsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nft_smart_contracts');
+        Schema::dropIfExists('token_transactions');
     }
 }

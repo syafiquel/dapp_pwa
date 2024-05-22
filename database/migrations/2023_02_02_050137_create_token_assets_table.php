@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNftAssetsTable extends Migration
+class CreateTokenAssetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateNftAssetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('nft_assets', function (Blueprint $table) {
+        Schema::create('token_assets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('ipfs_url');
+            $table->string('address');
             $table->integer('token_id');
             $table->string('price');
             $table->bigInteger('collection_id')->unsigned()->index()->nullable();
@@ -32,6 +32,6 @@ class CreateNftAssetsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nft_assets');
+        Schema::dropIfExists('token_assets');
     }
 }

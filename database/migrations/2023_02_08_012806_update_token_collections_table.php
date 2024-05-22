@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateNftAssetsTable extends Migration
+class UpdateTokenCollectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class UpdateNftAssetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('nft_assets', function (Blueprint $table) {
-            $table->foreign('collection_id')->references('id')->on('nft_collections')->onDelete('cascade');
-            $table->foreign('wallet_user_id')->references('id')->on('wallet_users')->onDelete('cascade');
+        Schema::table('token_collections', function (Blueprint $table) {
+            $table->foreign('token_smart_contract_id')->references('id')->on('token_smart_contracts')->onDelete('cascade');
         });
     }
 
